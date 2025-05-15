@@ -1,0 +1,179 @@
+{
+  "main": {
+    "id": "f44a70d9e1b749d9",
+    "type": "split",
+    "children": [
+      {
+        "id": "97d8c811ee22c5f3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2cbb8121279fc763",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Chapter 0 - Introduction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "aca335ee5cdb2fd1",
+    "type": "split",
+    "children": [
+      {
+        "id": "dfc1f7523b540144",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ba9dfdee3d6b9c93",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "195a77df86aa39f3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ec106d5aba2a2d4e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "fc89c91b0bee56b8",
+    "type": "split",
+    "children": [
+      {
+        "id": "926975c0af73732c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f966e5f37cd62b90",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Chapter 0 - Introduction"
+            }
+          },
+          {
+            "id": "bc472e903d5f98bc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Chapter 0 - Introduction"
+            }
+          },
+          {
+            "id": "e422f740e7fb840c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9749cc78e0ca1d50",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Chapter 0 - Introduction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2cbb8121279fc763",
+  "lastOpenFiles": [
+    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 1 - Cloud Concepts.md",
+    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
+    "README.md",
+    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900",
+    "Welcome.md"
+  ]
+}
