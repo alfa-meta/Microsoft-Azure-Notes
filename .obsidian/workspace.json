@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
+                "file": "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 1 - Cloud Concepts.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 0 - Introduction"
+              "title": "Chapter 1 - Cloud Concepts"
             }
           }
         ]
@@ -170,7 +170,11 @@
   },
   "active": "2cbb8121279fc763",
   "lastOpenFiles": [
+    "Pasted image 20250517123201.png",
+    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 1 - Assessment.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 1 - Cloud Concepts.md",
+    "Untitled",
+    "Pasted image 20250517123300.png",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
     "README.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900",
