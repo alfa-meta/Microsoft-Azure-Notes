@@ -18,7 +18,7 @@ Microsoft Dynamics 365 - encompasses enterprise resource planning and customer r
 Capital Expenditure (CapEx) - money spent by an organisation to acquire or maintain fixed assets.
 	Includes buying IT infrastructure such as servers.
 
-Operation Expenditure (OpEx) - monthly expenditures that the organization uses to run its operation.
+Operation Expenditure (OpEx) - monthly expenditures that the organisation uses to run its operation.
 
 Moving from CapEx to OpEx allows:
 	Elimination of up-front costs
