@@ -1,6 +1,6 @@
 This Vault is used for Microsoft Azure Certification notes.
 
-## Current Learning Roadmap
+## Current Learning Road map
 	1. Microsoft Azure Certification Fundamentals A-Z 900
 	2. Learn Angular
 	3. Learn C#

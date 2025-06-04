@@ -1,4 +1,3 @@
-
 ## Core Azure Architectural Components
 
 ### Geographies and Regions
@@ -31,7 +30,7 @@ Region - collection of data centres that interact to provide data redundancy and
 Region Pair - consists of two regions within the same geography. Updates are rolled out to regions serially, meaning only one region is updated at a time.
 	Region pair is only updated after the first one has been updated successfully.
 
-Data centre - individual data centre within a region host the serves and other infrastructure needed to host services within that region.
+Data centre - individual data centre within a region host the servers and other infrastructure needed to host services within that region.
 
 Availability zones - encompasses separate power, networking, and cooling, and it is intended to guard against data loss or outages caused by failures in any of those three categories.
 ### Resources and Resource Groups
@@ -49,7 +48,6 @@ Things that you can do with resource groups:
 	Assign resources to the group,
 	apply CanNotDelete lock.
 
-
 Things to consider when using resource groups and managing resources:
 	Lifecycle - all resources in a resource group should share the same lifecycle for deployment, updates, and deletion.
 	Resource assignment - a resource can exist in only one group, but you can add or remove a resource to or from the group as needed. You can also move resources from one group to another.
@@ -63,10 +61,9 @@ Things to consider when using resource groups and managing resources:
 
 ### Azure Resource Manager
 
-Azure Resource Manger (ARM) - is the service that enables you to manage resources, serving as the deployment and management service for Azure.
+Azure Resource Manager (ARM) - is the service that enables you to manage resources, serving as the deployment and management service for Azure.
 	Not a tool or Interface.
 	Functions as the broker between management tools like Azure portal and resource providers.
-
 
 ## Azure Subscriptions and Billing Scope
 
@@ -85,12 +82,10 @@ Can be used to establish administrative boundaries.
 
 Billing Account - is a mechanism that you use to pay for Azure services.
 
-Microsoft Online Services Program - 
-
 Enterprise agreement (EA) - enables you to purchase software and services from Microsoft under a (typically) multiyear agreement. 
 
 Microsoft Customer Agreement (MCA) - consolidates monthly Azure, Azure Marketplace, and Microsoft AppSource invoices.
-	In some regions, an MCA is created automatically when you subscribe to pas-as-you-go or Azure free subscriptions.
+	In some regions, an MCA is created automatically when you subscribe to pay-as-you-go or Azure free subscriptions.
 ### Azure Billing Scope
 
 Azure billing scope - is a node within a billing account that enables you to manage invoices, payments, accounts, and other Azure billing-related data.
@@ -114,7 +109,7 @@ Hypervisor - software manages VMs running on a host.
 Virtual Machine Scale Sets - simplify the creating and managing a group of load-balanced VMs.
 	Supports up to 1,000 standard VM instances, or up to 600 custom instances.
 	VMs in a scale set are all created from the same OS image.
-	Azure Scale sets can use either Azure Load Balancer or Azure Application Gateway to balance traffic to the VMs in the set.
+	Azure Scale sets can use either Azure Load Balancer or Azure. Application Gateway to balance traffic to the VMs in the set.
 
 Azure Site Recovery Service - enables organisations to easily replicate virtual machines and physical servers from a primary site to a secondary site.
 	You can replicate physical servers or VMs from your own data centre to Azure.
