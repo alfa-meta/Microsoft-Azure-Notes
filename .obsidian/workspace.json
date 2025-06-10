@@ -11,12 +11,14 @@
             "id": "2cbb8121279fc763",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Pasted image 20250517123201.png"
+                "file": "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 1 - Asynchronous programming and multithreading.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250517123201"
+              "icon": "lucide-file",
+              "title": "Chapter 1 - Asynchronous programming and multithreading"
             }
           },
           {
@@ -39,16 +41,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 7 - Assessment.md",
+                "file": "Csharp/Understanding Stack and Heap using Variables.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 7 - Assessment"
+              "title": "Understanding Stack and Heap using Variables"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -195,16 +196,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bdbb9522dc6ea667",
+  "active": "2cbb8121279fc763",
   "lastOpenFiles": [
-    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 7 - Creating and Managing Azure Resources.md",
+    "Csharp Concurrency - Asynchronous and multithreaded programming/Introduction.md",
+    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 1 - Asynchronous programming and multithreading.md",
+    "Pasted image 20250610180155.png",
+    "Csharp/Object-Oriented Programming/Classes, structs, and records.md",
+    "Csharp Concurrency - Asynchronous and multithreaded programming",
+    "Csharp/Asynchronous Programming/Fundamentals of Asynchronous Programming.md",
+    "Csharp/Understanding Stack and Heap using Variables.md",
+    "Csharp/Untitled.md",
+    "Csharp/Asynchronous Programming",
+    "Pasted image 20250517123201.png",
+    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 5 - Azure Solutions.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 7 - Assessment.md",
+    "Csharp/Object-Oriented Programming.md",
+    "Csharp/Object-Oriented Programming",
+    "Csharp",
+    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 7 - Creating and Managing Azure Resources.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 6 - Assessment.md",
-    "Untitled",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 6 - Azure Pricing, Service Levels, and Lifecycle.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 5 - Assessment.md",
-    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 5 - Azure Solutions.md",
-    "Pasted image 20250517123201.png",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 4 - Security, Compliance, Privacy, and Trust.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 4 - Assessment.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
