@@ -1,6 +1,5 @@
 
 Site for Microsoft Documentation: docs.microsoft.com
-
 ## Assessment Test
 1. B
 2. AXC
@@ -70,4 +69,4 @@ Site for Microsoft Documentation: docs.microsoft.com
 66. AXB
 67. A
 
-	28/67
+28/67
