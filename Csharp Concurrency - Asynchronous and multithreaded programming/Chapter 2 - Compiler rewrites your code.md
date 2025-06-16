@@ -117,7 +117,7 @@ The IEnumerator interface is important because it lets us (and the compiler) wri
 IEnumerator<T>
 ```
 
-### Summary
+## Summary
 The C# compiler will rearrange and rewrite your code to add features that do not exist in .NET.
 
 For lambda functions, the compiler moves code into a new method and shared data into a new class.
