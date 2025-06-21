@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 4 - Multithreading Basics.md",
+                "file": "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 5 - Async, await and multithreading.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 4 - Multithreading Basics"
+              "title": "Chapter 5 - Async, await and multithreading"
             }
           }
         ]
@@ -168,10 +168,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ba9dfdee3d6b9c93",
+  "active": "2cbb8121279fc763",
   "lastOpenFiles": [
-    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 3 - The async and await keywords.md",
+    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 0 - Introduction.md",
+    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 5 - Async, await and multithreading.md",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 4 - Multithreading Basics.md",
+    "Pasted image 20250610180155.png",
+    "Pasted image 20250612151739.png",
+    "Pasted image 20250517123300.png",
+    "Pasted image 20250517123201.png",
+    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 3 - The async and await keywords.md",
     "Pasted image 20250618060804.png",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 1 - Asynchronous programming and multithreading.md",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 2 - Compiler rewrites your code.md",
@@ -188,22 +194,17 @@
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 7 - Assessment.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 6 - Assessment.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 5 - Assessment.md",
-    "Pasted image 20250612151739.png",
-    "Csharp Concurrency - Asynchronous and multithreaded programming/Introduction.md",
     "Csharp/Object-Oriented Programming/Classes, structs, and records.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 7 - Creating and Managing Azure Resources.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 6 - Azure Pricing, Service Levels, and Lifecycle.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 5 - Azure Solutions.md",
-    "Pasted image 20250610180155.png",
     "Csharp Concurrency - Asynchronous and multithreaded programming",
     "Csharp/Asynchronous Programming/Fundamentals of Asynchronous Programming.md",
     "Csharp/Untitled.md",
     "Csharp/Asynchronous Programming",
-    "Pasted image 20250517123201.png",
     "Csharp/Object-Oriented Programming.md",
     "Csharp/Object-Oriented Programming",
     "Csharp",
-    "Pasted image 20250517123300.png",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900"
   ]
 }

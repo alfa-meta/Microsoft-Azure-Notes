@@ -230,6 +230,118 @@ Lock - a general mechanism to enforce mutual exclusion.
 Mutex (short for mutual exclusion) - using a variable only by one thread at a time.
 	Usually includes ownership.
 	A specific type of lock.
+
+```C#
+public void GetCorrectValue()
+{
+	int theValue = 0;
+	object theLock = new Object();
+
+	var threads = new Thread[2];
+	for(int i=0; i<2; i++)
+	{
+		threads[i] = new Thread(() =>
+		{
+			for (int j=0; j<5000000; j++)
+			{
+				lock(theLock)
+				{
+				 theValue++;
+				}
+			}
+		});
+		threads[i].Start();
+	}
+
+	foreach(var current in threads)
+	{
+		current.Join();
+	}
+	Console.WriteLine(theValue);
+}
+```
+
+
+In .NET 8 `Object` type `object` is the lowest overhead object .
+In .NET 9 better to use `System.Threading.Lock` which is faster in newer versions.
+
+Using the `lock` statement with an `Object` is still supported, safe, and correct.
+
+Deadlock - is the situation where a thread or multiple threads are stuck waiting for something that will never happen.
+
+ A local/private lock prevents the program from a deadlock.
+
+In all Windows desktop application technologies (WinForms, WPF, UWP, and WinAPI), UI windows and controls can only be accessed from the thread that created them.
+
+`ManualResetEvent` and `ManualResetEventSlim` - in C# are synchronisation primitives used for thread signaling.
+	One thread can signal an event, and other threads wait for that event.
+
+`ManualResetEvent`:
+- Uses a kernel object (OS-level resource)
+- Slower but works across process boundaries.
+- WaitOne() - blocks until signaled.
+- Set() - signals the event (unblocks all waiting threads).
+- Reset() - returns event to nonsignaled state.
+
+`ManualResetEventSlim`:
+- Uses user-mode spinning, then switches to kernel mode if needed.
+- Faster and more lightweight for in-process use.
+- Cannot be used across processes.
+- Has a SpinCount option for performance tuning.
+
+| Feature               | ManualResetEvent        | ManualResetEventSlim                   |
+| --------------------- | ----------------------- | -------------------------------------- |
+| Backed by OS handle   | Yes                     | No (user-mode, then fallback)          |
+| Performance           | Slower                  | Faster in single-process               |
+| Cross-process support | Yes                     | No                                     |
+| Memory Usage          | Higher                  | Lower                                  |
+| Suitable for          | Inter-process signaling | In-process performance-critical tasks. |
+
+```C#
+var myEvent = new ManualResetEventSlim(false); // Creates a "gate closed" event
+var threadWeWaitFor = new Thread(() =>
+	{
+		Console.WriteLine("Doing something");
+		Thread.Sleep(5000);
+		Console.WriteLine("Finished");
+		myEvent.Set(); // Opens gate
+	});
+var waitingThread = new Thread(() =>
+{
+	Console.WriteLine("Waiting for other thread to do something");
+	myEvent.Wait(); // Waits for gate to open
+	Console.WriteLine("Other thread finished, we can continue");
+});
+threadWeWaitFor.Start();
+waitingThread.Start();
+```
+
+`lock` statement is the safest statement in .NET.
+`Interlocked` class is an alternative to lock, however it should only be used in performance sensitive environments.
+
+### Things you can change using `Thread` class in order of usefulness
+
+#### Thread Background status.
+`Thread.IsBackground` - controls when your application exists.
+Application exits when all the non-background threads exit.
+Set `IsBackground` property to `true` if you want the application to close when the main thread is closed.
+If `IsBackground` is not set to true the thread in question will not exit when the `Main` method ends.
+Must be set before calling `Thread.Start`.
+
+#### Language and locale
+
+You can change the thread language and locale using the `Thread.CurrentCulture` property.
+Should only be used by the person to change the language, otherwise you should respect the user's computer settings.
+
+#### Current User
+
+Used mostly in .NET 4 and earlier.
+Used to set application and thread level information and permission systems.
+#### Thread priority
+
+Setting the thread priority is dangerous, and you shouldn't do it.
+Too easy to get into some variation of a high-priority thread waiting for a resource held by a lower-priority thread, whilst the high-priority thread taking all the CPU time.
+
 ## Summary 
 You can run multiple things in parallel. Each one of these things is called a thread.
 The program starts with one thread running the `Main` method. This thread is called the main thread.
