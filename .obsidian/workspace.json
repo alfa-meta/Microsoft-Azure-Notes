@@ -20,34 +20,6 @@
               "icon": "lucide-file",
               "title": "Chapter 4 - Multithreading Basics"
             }
-          },
-          {
-            "id": "69341d66aed16fc2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 5 - Azure Solutions.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Chapter 5 - Azure Solutions"
-            }
-          },
-          {
-            "id": "bdbb9522dc6ea667",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 4 - Multithreading Basics.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Chapter 4 - Multithreading Basics"
-            }
           }
         ]
       }
@@ -196,12 +168,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2cbb8121279fc763",
+  "active": "ba9dfdee3d6b9c93",
   "lastOpenFiles": [
-    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 1 - Asynchronous programming and multithreading.md",
-    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 2 - Compiler rewrites your code.md",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 3 - The async and await keywords.md",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 4 - Multithreading Basics.md",
+    "Pasted image 20250618060804.png",
+    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 1 - Asynchronous programming and multithreading.md",
+    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 2 - Compiler rewrites your code.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 1 - Assessment.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 1 - Cloud Concepts.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 4 - Assessment.md",
@@ -230,7 +203,6 @@
     "Csharp/Object-Oriented Programming.md",
     "Csharp/Object-Oriented Programming",
     "Csharp",
-    "README.md",
     "Pasted image 20250517123300.png",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900"
   ]
