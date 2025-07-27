@@ -19,5 +19,5 @@ Hybrid Cloud - combine public and private clouds.
 
 Scalability - quickly scale up/down IT resources.
 
-
+Azure Arc - is used to provide seamless integration of Hybrid cloud.
 
