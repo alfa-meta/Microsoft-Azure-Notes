@@ -67,3 +67,46 @@ Azure Kubernetes Service (AKS):
 	Managed Kubernetes service, reduced complexity of by offloading much of that responsibility.
 	Integrated developer tools - seamlessly integrate with Azure DevOps, Visual Studio Code, and other tools to simplify the workflow.
 	Microservices-ready: AKS is ideal for microservices  architectures due to its high levels of scalability and flexibility.
+
+
+Azure Container Instances (ACI):
+	Event-driven: Great for short-lived, event-driven applications.
+	Per-second billing.
+	Persistent storage: Can mount Azure file shares, providing persistent storage for stateful containers.
+
+Azure App Service:
+	Fully managed platform for building, deploying, and scaling web apps, APIs, and mobile back ends.
+	Multiple Languages
+	High Productivity: built-in CI/CD, staging environments, custom domain, and SSL certificates.
+	Enterprise-grade security: Integrated authentication and authorisation, as well as security patching.
+
+Azure Functions:
+	Event  Triggered code
+	Triggers and bindings supports a variety of triggers and bindings to easily connect to other Azure services or on-premises systems.
+	Support for multiple languages
+	Ideal for automating tasks and building systems composed of event-driver components.
+
+Azure Batch:
+	For large-scale parallel and high-performance computing (HPC) batch jobs, Azure Batch enables you to run large-scale parallel and high-performance computing applications efficiently in the cloud.
+	Job Scheduling, automatically scales to adjust to the workload demands.
+	Works with on-premises software or services running in Azure.
+	Batch processing, optimal for running large-scale parallel batch compute jobs across a managed collection of virtual machines.
+
+Azure Virtual Desktop:
+	AVD is a desktop and app virtualisation service that runs on the cloud.
+	Can make multi-session Windows 10, allowing multiple users to share the same Windows 10 or 11 experience.
+	Optimised for Office 365.
+	Secure, including Azure Firewall, Azure Security Center, Azure Sentinel, And Microsoft Defender ATP.
+
+Spot VMs:
+	Spot VMs allow you to take advantage of unused Azure compute capacity at a Significant cost savings.
+	Up to 90% off the regular the regular price of VMs.
+	Use Spot VMs for various workloads, including dev/test, batch processing and workloads that can handle interruptions.
+
+Dedicated Host:
+	Azure Dedicated host provides physical servers that host one or more Azure VMs for Windows and Linux.
+	Control over maintenance, you decide when maintenance is applied.
+	Hardware isolation, no other customers workloads run on your dedicated host.
+
+Dedicated Host:
+
