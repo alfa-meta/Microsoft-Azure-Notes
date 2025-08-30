@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Csharp in a nutshell/Chapter 1 - Introduction.md",
+                "file": "Csharp in a nutshell/Chapter 2 - CSharp Language Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 1 - Introduction"
+              "title": "Chapter 2 - CSharp Language Basics"
             }
           }
         ]
@@ -171,6 +171,8 @@
   },
   "active": "2cbb8121279fc763",
   "lastOpenFiles": [
+    "Csharp in a nutshell/Chapter 1 - Introduction.md",
+    "Csharp in a nutshell/Chapter 2 - CSharp Language Basics.md",
     "README.md",
     "Pasted image 20250517123201.png",
     "Pasted image 20250517123300.png",
@@ -182,7 +184,6 @@
     "Pasted image 20250827215041.png",
     "Pasted image 20250827231707.png",
     "Pasted image 20250827231934.png",
-    "Csharp in a nutshell/Chapter 1 - Introduction.md",
     "Csharp/Asynchronous Programming/Fundamentals of Asynchronous Programming.md",
     "Csharp in a nutshell",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Microsoft Book 2/Chapter 3 - Core Azure Services and Products.md",
@@ -209,7 +210,6 @@
     "Csharp/Understanding Stack and Heap using Variables.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 7 - Assessment.md",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 6 - Assessment.md",
-    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 5 - Assessment.md",
     "Csharp Concurrency - Asynchronous and multithreaded programming",
     "Csharp/Asynchronous Programming",
     "Csharp/Object-Oriented Programming",

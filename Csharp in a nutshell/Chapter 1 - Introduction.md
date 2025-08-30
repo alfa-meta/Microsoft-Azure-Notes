@@ -1,14 +1,12 @@
 
 C# is a general-purpose, type-safe, object-oriented programming language.
-Goal of the lagnuage is programmer productivity.
+Goal of the language is programmer productivity.
 
 C# is platform neutral.
 
-
 ## Object Orientation
 
-Encapsulation - means creating a boundary around an object to seperate its external (public) behaviour from its internal (private) implementation.
-
+Encapsulation - means creating a boundary around an object to separate its external (public) behaviour from its internal (private) implementation.
 
 #### Unified Type System
 
@@ -252,8 +250,72 @@ Console.WriteLine (numbers is [_, 1, .., 4]); // True
 
 #### Required members
 
+Applying the required modifier to a field or property forces consumers of that class or struct to populate that member via an object initialiser when constructing it:
+
+```C#
+Asset a1 = new Asset { Name = "House" }; // OK
+Asset a2 = new Asset();  // Error: will not compile
+
+class Asset { public required string Name; }
+```
+
+
 #### Static virtual/abstract interface members
+
+C# 11, interfaces can declare members as static virtual or static abstract:
+
+```C#
+public interface IParsable<TSelf>
+{
+	static abstract TSelf Parse (string s);
+}
+```
+
+These members are implementes as static functions in classes or structs, and can be called polymorphically via a constrained type parameter:
+`
+```C#
+T ParseAny<T> (string s) where T : IPasable<T> => T.Parse (s);
+```
 
 #### Generic maths
 
-#### Other
+`System.Numerics.INumber<TSelf>` interface unifies arithmetic operations across all numeric types, allowing generic methods such as the following to be written:
+
+```C#
+T Sum<T> (T[] numbers) where T : INumber<T>
+{
+	T total = T.Zero;
+	foreach (T n in numbers)
+		total += n; // Invokes addition operator for any numeric type
+	return total;
+}
+
+int intSum = Sum(3, 5, 7)'
+double doubleSum = Sum(3.2, 5.3, 7.1);
+decimal decimalSum = Sum(3.2m, 5.3m, 7.1m);
+```
+
+# Important
+
+The rest was skipped due to needing to know more of the basics before diving in the deep end.
+
+#### File-scoped namespaces (C#10)
+
+In the common case that all types in a file are defined in a single namespace, a file-scoped namespace declaration in C# 10 reduces clutter and eliminates an unnecessary level of indentation:
+
+```C#
+namespace MyNamespace; // Applies to everything that follows in the file.
+
+class Class1 {}
+class Class2 {}
+```
+
+#### Global using directive (C#10)
+
+When you prefix a `using` directive with the `global` keyword, it applies the directive to all files in the project:
+
+```C#
+global using System;
+global using System.Collection.Generic;
+```
+
