@@ -19,7 +19,7 @@ int x = 12 * 30;
 Console.WriteLine(x); // No need to specify System.
 ```
 
-Statement block - series of statments surrounded by a pair of braces.
+Statement block - series of statements surrounded by a pair of braces.
 A method can receive input data from the caller by specifying parameters and output data back to the caller by specifying a return type.
 
 ### Compilation
@@ -436,7 +436,70 @@ int i2 = (int)f;
 
 When you cast from a floating-point number to an integral type, any fractional portion is truncated; no rounding is performed.
 
+implicitly converting a large integral type to a floating-point type preserves `magnitude` but can occasionally lose precision.
+
+```C#
+int i1 = 100000001;
+float f = i1; // Magnitude preserved, precision lost
+int i2 = (int)f;
+```
+
+### Arithmetic Operators
+
+The arithmetic operators are defined for all numeric types except the 8-bit and 16-bit integral types:
+- `+` Addition
+- `-` Subtraction
+- `*` Multiplication
+- `/` Division
+- `%` Remainder after division
+
+Increment operator `++` - increases numeric value by 1.
+Decrement operator `--` - decreases numeric value by 1.
+
+The operator can either follow or precede the variable, depending on whether you want its value `before` or `after` the increment/decrement; for example:
+```C#
+int x = 0, y = 0;
+Console.WriteLine(x++); // Outputs 0; x is now 1
+Console.WriteLine(++y); // Outputs 1; y is not 1
+```
+
+Integral types are:
+- int
+- uint
+- long
+- ulong
+- short
+- ushort
+- byte
+- sbyte
+
+#### Specialised Operations on Integral Types
+
+Division operations on integral types always eleminates the remainder (round toward zero).
+Dividing by a variable whose value is zero generates a runtime error (a `DivideByZeroExeption`):
+
+```C#
+int a = 2 / 3; // 0
+int b = 0;
+int c = 5 / b; // throws DivideByZeroException
+```
+
+Dividing by the literal or constant 0 generates a compile-time error.
+
+
+
+
+
+
+
+
+
 ## Boolean Type and Operators
+
+
+
+
+
 
 ## Strings and Characters
 

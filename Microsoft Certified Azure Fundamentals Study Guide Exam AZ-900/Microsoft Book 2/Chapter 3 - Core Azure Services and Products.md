@@ -108,5 +108,51 @@ Dedicated Host:
 	Control over maintenance, you decide when maintenance is applied.
 	Hardware isolation, no other customers workloads run on your dedicated host.
 
-Dedicated Host:
+
+
+## Azure Storage Solutions
+
+Azure Blobs - for unstructured data such as text or binary data, including documents, images, and videos.
+
+Azure Files - Managed file shares for cloud or on-premises deployments.
+
+Azure Queues - for storing and retrieving large volumes of messages.
+
+Azure Tables - a NoSQL data store for semi-structured data.
+
+Azure Disks - Block-level storage volumes for Azure VMs.
+
+
+Azure Blob Storage:
+	Optimised for storing massive amounts of unstructured data.
+	Grouped into containers that provide a way to organise sets of blobs similar to a directory in a file system.
+		Block Blobs - ideal for text and binary data.
+		Append Blobs - optimised for append operations, making them perfect for logging data from virtual machines.
+		Page Blobs - designed for frequent read/write operations and are the foundation of Azure Virtual Machine Disks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
