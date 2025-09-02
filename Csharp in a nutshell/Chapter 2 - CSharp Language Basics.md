@@ -475,7 +475,7 @@ Integral types are:
 
 #### Specialised Operations on Integral Types
 
-Division operations on integral types always eleminates the remainder (round toward zero).
+Division operations on integral types always eliminates the remainder (round toward zero).
 Dividing by a variable whose value is zero generates a runtime error (a `DivideByZeroExeption`):
 
 ```C#
@@ -485,8 +485,16 @@ int c = 5 / b; // throws DivideByZeroException
 ```
 
 Dividing by the literal or constant 0 generates a compile-time error.
+##### Overflow
 
+At runtime, arithmetic operations on integral types can overflow.
+Meaning they can go from a min value to a max value and vice versa.
 
+```C#
+int a = int.MinValue;
+a--;
+Console.WriteLine(a == int.MaxValue); // True
+```
 
 
 
@@ -514,3 +522,4 @@ Dividing by the literal or constant 0 generates a compile-time error.
 ## Statements
 
 ## Namespaces
+
