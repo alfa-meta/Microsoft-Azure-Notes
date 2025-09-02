@@ -497,10 +497,53 @@ Console.WriteLine(a == int.MaxValue); // True
 ```
 
 
+`checked` operator instructs the runtime to generate an `OverflowException` rather than overflowing silently when an integral-type expression or statement exceeds the arithmetic limits of that type.
+	`checked` operator has no effect on the `double` and `float` types.
+		They both overflow to special infinite values.
+	`decimal` type is always checked.
+
+```C#
+int a = 1000000;
+int b = 1000000;
+
+int c = checked (a * b); // Checks just the expression
+
+checked
+{
+	...
+	c = a * b;
+	...
+}
+```
+
+Overflow checking can be made by default at the project Level.
+`unchecked` operator similar to `checked` makes sure that an `OverflowException` is not thrown.
+
+Regardless of the "checked" project setting, expressions evaluated at compile time are always overflow-checked:
+```C#
+int x = int.MaxValue + 1; // Compile-time error
+int y = unchecked (int.MaxValue + 1); // No errors
+```
+
+![[Pasted image 20250902073355.png]]
+
+#### 8- and 16-Bit Integral Types
+Include `byte`, `sbyte`, `short`, and `ushort`.
+	These types lack their own arithmetic operators, so C# implicitly converts them to larger types as required.
+
+```C#
+// Implicit conversion to int
+short x = 1. y = 1;
+short z = x + y; // Compile-time error
 
 
+// Explicit conversion to short
+short z = (short) (x + y); // OK
+```
 
+#### Special Float and Double Values
 
+![[Pasted image 20250902074421.png]]
 
 ## Boolean Type and Operators
 
