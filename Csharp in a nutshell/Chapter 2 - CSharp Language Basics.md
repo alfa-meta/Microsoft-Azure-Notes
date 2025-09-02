@@ -545,12 +545,48 @@ short z = (short) (x + y); // OK
 
 ![[Pasted image 20250902074421.png]]
 
+When using `==`, a `NaN` value is never equal to another value, even another `NaN` value:
+```C#
+Console.WriteLine(0.0 / 0.0 == double.NaN); // False
+```
+
+To test whether a value is `NaN`, you must use the `float.IsNaN` or `double.IsNaN` method:
+```C#
+Console.WriteLine(double.IsNaN( 0.0 / 0.0 )); // True
+```
+
+### double Versus decimal
+
+`double` is useful for scientific computations.
+`decimal` is useful for financial computations and values that are manufactured rather than the result of real-world measurements.
+
+![[Pasted image 20250902174224.png]]
+
+### Real Number Rounding Errors
+
+`float` and `double` internally represent numbers in base 2.
+Only numbers expressible in base 2 are represented precisely.
+	Most literals with a fractional component will not be represented precisely. Due to them being base 10.
+
+`decimal` works in base 10, and so can precisely represent numbers expressible in base 2, 5 and 10. 
+Because literals are in base 10, `decimal` can precisely represent numbers such as 0.1.
+
+NEITHER `double` nor `decimal` can precisely represent a fractional number whose base 10 representation is recurring:
+```C#
+decimal m = 1M / 6M;   // 0.16666666666666666666666666667M
+double d = 1.0 / 6.0;  // 0.1666666666666666
+```
+
+This leads to accumulated rounding errors:
+```C#
+decimal notQuiteWholeM = m+m+m+m+m+m; // 1.0000000000000000000000002M
+double notQuiteWholeD = d+d+d+d+d+d;  // 0.99999999999999999999989
+
+Console.WriteLine(notQuiteWholeM == 1M); // False
+Console.WriteLine(notQuiteWholeD < 1.0); // True
+```
+
 ## Boolean Type and Operators
-
-
-
-
-
 
 ## Strings and Characters
 
