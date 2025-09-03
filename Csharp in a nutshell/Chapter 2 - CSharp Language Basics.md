@@ -588,6 +588,48 @@ Console.WriteLine(notQuiteWholeD < 1.0); // True
 
 ## Boolean Type and Operators
 
+System.Boolean type - is a logical value that can be assigned the literal `true` or `false`.
+
+Boolean only requires one bit of storage.
+Runtime uses 1 byte of memory because this is the minimum chunk that the runtime and processor can efficiently work with.
+
+To avoid space inefficiency in the case of arrays, .NET provides a `BitArray` class in the `System.Collections` namespace.
+Designed to use just one bit per Boolean value
+
+
+#### bool Conversions
+
+No casting conversions can be made from the `bool` type to numeric types, or vice versa.
+
+
+== and != test for equality and inequality of any type but always return a bool value.
+
+For reference types, equality, by default, is based on `reference`, as opposed to the actual `value` of the underlying object.
+
+```C#
+Dude d1 = new Dude ("John");
+Dude d2 = new Dude ("John");
+Console.WriteLine(d1 == d2); // False
+Dude d3 = d1;
+Console.WriteLine(d1 == d3); // True
+
+public class Dude
+{
+	public string Name;
+	public Dude (string n) { Name = n; }
+}
+```
+
+`==`, `!=`, `<`, `>`, `>=`, and `<=` work for all numeric types.
+
+### Conditional Operators
+
+`&&` - and conditional.
+`||` - or conditional.
+
+`&&` and `||` operators short-circuit evaluation when possible.
+
+
 ## Strings and Characters
 
 ## Arrays
