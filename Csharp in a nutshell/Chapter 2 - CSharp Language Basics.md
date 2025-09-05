@@ -624,10 +624,24 @@ public class Dude
 
 ### Conditional Operators
 
+`!` - not operator
 `&&` - and conditional.
 `||` - or conditional.
 
 `&&` and `||` operators short-circuit evaluation when possible.
+`&` and `|` operators are bitwise operators and do not short circuit.
+
+### Ternary Operator
+
+Has the form q ? a : b - thus if condition q is true, a is evaluated; otherwise b is evaluated.
+
+```C#
+static int Max (int a, int b)
+{
+	return (a > b) ? a : b;
+}
+```
+
 
 
 ## Strings and Characters
