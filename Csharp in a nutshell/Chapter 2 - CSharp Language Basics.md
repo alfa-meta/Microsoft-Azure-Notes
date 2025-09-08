@@ -588,7 +588,7 @@ Console.WriteLine(notQuiteWholeD < 1.0); // True
 
 ## Boolean Type and Operators
 
-System.Boolean type - is a logical value that can be assigned the literal `true` or `false`.
+`System.Boolean` type - is a logical value that can be assigned the literal `true` or `false`.
 
 Boolean only requires one bit of storage.
 Runtime uses 1 byte of memory because this is the minimum chunk that the runtime and processor can efficiently work with.
@@ -643,8 +643,66 @@ static int Max (int a, int b)
 ```
 
 
-
 ## Strings and Characters
+
+C#'s char type represents a Unicode character and occupies 2 bytes (UTF-16). A Char literal is specified within single quotes:
+```C#
+char c = 'A'; // Simple character
+```
+
+Escape character - is a backslash followed by a character with a special meaning.
+Escape Sequences express characters that cannot be expressed or interpreted literally.
+
+![[Pasted image 20250907134342.png]]
+
+![[Pasted image 20250907134348.png]]
+
+The `\u` or `\x` escape sequence lets you specify any Unicode character via its four-digit hexadecimal code.
+
+```C#
+char copyrightSymbol = '\u00A9';
+char omegaSymbol = '\u03A9';
+char newLine = '\u000A';
+```
+
+#### Char Conversions
+
+An implicit conversion from a char to a numeric type works for the numeric types that can accommodate an unsigned short.
+For other numeric types, and explicit conversion is required.
+
+
+### String Type
+
+C#'s string type represents an immutable sequence of Unicode characters.
+A string literal is specified within double quotes:
+```C#
+string a = "Heat";
+```
+
+Escape sequences that are valid for char literals also work inside strings:
+```C#
+string a = "Here's a tab:\t";
+```
+
+The cost of this is that whenever you need a literal backslash, you must write it twice:
+```C#
+string a1 = "\\\\server\\fileshare\\helloworld.cs";
+```
+
+@ - verbatim string literal - does not support escape sequences.
+```C#
+string a2 = @"\\server\fileshare\helloworld.cs";
+```
+
+```C#
+string escaped = "First Line\r\nSecond Line";
+string verbatim = @"First Line
+Second Line";
+
+// True if your text editor uses CR-LF line separators:
+Console.WriteLine (escaped == verbatim);
+```
+
 
 ## Arrays
 
