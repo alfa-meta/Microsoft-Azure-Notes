@@ -703,8 +703,160 @@ Second Line";
 Console.WriteLine (escaped == verbatim);
 ```
 
+#### Raw String Literals (C# 11)
+Wrapping a string in three or more quote characters (""") creates a `raw string literal`.
+Raw string literals can contain almost any character sequence, without escaping or doubling up:
+```C#
+string raw = """<file path="c:\temp\test.txt"></file>""";
+```
+
+Compiler will generate an error if each line in a multiline raw string literal is not prefixed with the common indentation specified by the closing quotes.
+
+#### String Concatenation
+The + operator concatenates two strings.
+If one of the values is a non-string value, `ToString` is called on that value.
+
+```C#
+string s = "a" + "b";
+string sn = "a" + 5; // a5
+```
+#### String Interpolation
+A string preceded with the `$` character is called an `interpolated string`. Interpolated strings can include expressions enclosed in braces:
+```C#
+int x = 4;
+Console.Write($"A square has {x} sides"); // Prints: A square has 4 sides.
+```
+
+Any valid C# expression of any type can appear within the braces. C# will convert the object to `ToString` automatically.
+
+If you need to use a colon for other purpose than formatting:
+```C#
+bool b = true;
+Console.WriteLine($"The Answer in binary is {(b ? 1 : 0)}");
+```
+
+
+#### String comparisons
+`==` operator is supported
+`>` and `<`  - are not supported for strings
+Use `CompareTo` method instead.
+#### UTF-8 Strings
+From C# 11, you can use the u8 suffix to create string literals encoded in UTF-8 rather than UTF-16. 
+```C#
+ReadOnlySpan<byte> utf8 = "ab->cd"u8; // Arrow symbol consumes 3 bytes
+Console.WriteLine(utf8.Lenght); // 7
+```
 
 ## Arrays
+
+Array - represents a fixed number of variables (called elements) of a particular type.
+	Elements are always stored in a contiguous block of memory, providing highly efficient access.
+
+```C#
+char[] vowels = new char[5]; // Declare an array of 5 characters
+```
+
+Square brackets also `index` the array, accessing a particular element by position:
+```C#
+vowels[0] = 'a';
+vowels[1] = 'e';
+vowels[2] = 'i';
+Console.WriteLine(vowels[1]); // e
+```
+
+Array indexes start at 0
+
+```C#
+for (int i = 0; i < vowels.Length; i++)
+	Console.Write(vowels[i]); // aei
+```
+
+`Length` property of an array returns the number of elements in the array.
+After an array has been created, you cannot change its length.
+
+An array initialisation expression lets you declare and populate an array in a single step:
+```C#
+char[] vowels = new char[] {'a', 'e', 'i', 'o', 'u'};
+// OR
+char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+```
+
+#### Collection Expression
+From C# 12, you can use square brackets instead of curly braces:
+```C#
+char[] vowels = ['a','e','i','o','u'];
+
+void Foo (char[] letters) { ... }
+```
+
+### Default Element Initialisation
+Creating an array always preinitialises the elements with default values.
+The default value for a type is the result of a bitwise zeroing of memory.
+
+```C#
+int[] a = new int[1000];
+Console.Write(a[123]); // 0
+```
+
+#### Value types versus reference types
+When an element is a value type, each element value is allocated as part of the array, as shown here:
+```C#
+Point[] a = new Point[1000];
+int x = a[500].X; // 0
+
+public struct Point { public int X, Y; }
+```
+
+Had the `Point` been a class, creating the array would have merely allocated 1,000 null references:
+```C#
+Point[] a = new Point[1000];
+int x = a[500].X; // Runtime error, NullReferenceException
+
+public class Point ( public int X, Y;)
+```
+
+To avoid this error, we must explicitly instantiate 1,000 Points after instantiating the array:
+```C#
+Point[] a = new Point[1000];
+for (int i= 0; i < a.Length; i++) // Iterate i from 0 to 999
+	a[i] = new Point();           // Set array element i with new point.
+```
+
+An array is always a reference type object, regardless of the element type.
+```C#
+int[] a = null;
+```
+### Indices and Ranges
+
+#### Indices
+Indices let you refer to elements relative to the end of an array, with the `^` operator.
+`^1` refers to the last element, `^2` refers to the second-to-last element, and so on:
+```C#
+char[] vowels = new char[] {'a', 'e', 'i', 'o', 'u'};
+char lastElement = vowels[^1];  // 'u'
+char secondToLast = vowels[^2]; // 'o'
+```
+
+^0 equals the length of the array, so `vowels[^0]` generates an error.
+
+C# implements indices with the help of the `Index` type, so you can also do the following:
+```C#
+Index first = 0;
+Index last = ^1;
+char firstElement = vowels[first];  // 'a'
+char lastElement = vowels[last];    // 'u'
+```
+#### Ranges
+
+### Multidimensional Arrays
+
+#### Rectangular arrays
+
+#### Jagged arrays
+
+### Simplified Array initialisation Expressions
+
+### Bounds Checking
 
 ## Variables and Parameters
 
