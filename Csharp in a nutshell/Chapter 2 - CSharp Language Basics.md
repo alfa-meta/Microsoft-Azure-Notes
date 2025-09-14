@@ -1099,11 +1099,89 @@ GetValues(out a, out b);
 Console.WriteLine($"{a}, {b}"); // 10, 20
 ```
 #### Passing arguments by value
+By default, arguments in C# are passed by value.
+This means that a copy of the value is created when passed to the method:
+```C#
+int x = 8;
+Foo(x);    // Make a copy of x
+Console.WriteLine(x); // x will still be 8
 
+static void Foo(int p)
+{
+	p = p + 1;            // Increment p by 1
+	Console.WriteLine(p); // Write p to screen
+}
+```
+
+Assigning p a new value does not change the contents of x, because p and x reside in different memory locations.
+
+Passing a reference-type argument by value copies the `reference` but not the object.
+In the following example, Foo sees the same StringBuilder object we instantiated `sb` but has an independent reference to it.
+`sb` and `fooSB` are separate variables that reference the same `StringBuilder` object:
+```C#
+StringBuilder sb = new StringBuilder();
+Foo(sb)l
+Console.WriteLine(sb.ToString()); // test
+
+static void foo (StringBUilder fooSB)
+{
+	fooSB.Append("test");
+	fooSB = null;
+}
+```
+
+Because `fooSB` is a copy of a reference, setting it to null doesn't make `sb` null.
+If however, `fooSB` was declared and called with the `ref` modifier, `sb` would become null.
 #### The ref modifier
+To pass by reference, C# provides the ref parameter modifier.
+In the following example, p and x refer to the same memory locations:
+```C#
+int x = 8;
+Foo (ref x);            // Ask Foo to deal directly with x
+Console.WriteLine(x);   // x is now 9
 
+static void Foo (ref int p)
+{
+	p = p + 1;             // Increment p by 1
+	Console.WriteLine(p);  // Write p to screen
+}
+```
+Notice how the `ref` modifier is required both when writing and when calling the method.
+
+```C#
+string x = "Penn";
+string y = "Teller";
+Swap(ref x, ref y);
+Console.WriteLine(x);   // Teller
+Console.WrtieLine(y);   // Penn
+
+static void Swap (ref string a, ref string b)
+{
+	string temp = a;
+	a = b;
+	b = temp;
+}
+```
+
+Parameter can be passed by reference or by value, regardless of whether the parameter type is a reference type or a value type.
 #### The out modifier
+The out modifier is most commonly used to get multiple return values back from a method.
 
+```C#
+string a, b;
+Split("Stevie Ray Vaughn", out a, out b);
+Console.WriteLine(a);   // Stevie Ray
+Console.WriteLine(b);   // Vaughn
+
+void Split(string name, out string firstNames, out string lastName)
+{
+	int i = name.LastIndexOf(' ');
+	firstNames = name.Substring(0, i);
+	lastName = name.Substring(i + 1);
+}
+```
+
+Like the `ref` parameter, an `out` parameter is passed by reference.
 #### Out variables and discard
 
 #### Implications of passing by reference
