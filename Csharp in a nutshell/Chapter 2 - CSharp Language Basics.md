@@ -1009,10 +1009,95 @@ Definite assignment has three implications:
 - Function arguments must be supplied when a method is called. (Unless optional)
 - All other variables (such as fields and array elements) are automatically initialised by the runtime.
 
+
+ ```C#
+ int x;
+ Console.WriteLine(x);  // Compile-time error
+ ```
+
+Field - is a variable of any type that is declared directly in a class or struct.
+Field and array elements are automatically initialised with the default values for their type.
+
+```C#
+int[] ints = new int[2];
+Console.WriteLine(ints[0]);  // 0
+```
+
+```C#
+Console.WriteLine(Test.X); // 0
+class Test { public static int X; } // field
+```
+
 ### Default Values
+All type instances have a default value.
+![[Pasted image 20250914132514.png]]
 
+You can obtain the default value for any type via the `default` keyword:
+```C#
+Console.WriteLine(default (decimal)); // 0
+```
+
+```C#
+decimal d = default;
+```
+
+The `default` value in a custom value type is the same as the default value for each field defined by the custom type.
 ### Parameters
+A method may have a sequence of parameters.
+Parameters define the set of arguments that must be provided for that method.
+```C#
+Foo(8);  // 8 is an argument
+static void Foo (int p) {...} // p is a parameter
+```
 
+You can control how parameters are passed with the `ref`, `in`, and `out` modifiers:
+![[Pasted image 20250914133141.png]]
+
+1. No modifier (default -> passed by value
+```C#
+void Increment(int x)
+{
+	x++;
+}
+
+int a = 5;
+Increment(a);
+COnsole.WriteLine(a); // 5 (unchanged, because passed by value)
+```
+2. `ref` (passed by reference, must be initialised)
+```C#
+void Increment(ref int x)
+{
+	x++;
+}
+
+int a = 5;
+Increment(ref a);
+Console.WriteLine(a); // 6 (changed, because passed by reference)
+```
+3. `in` (passed by reference, but read-only)
+```C#
+void PrintSquare(in int x)
+{
+	Console.WriteLine(x * x);
+	// x++; // Error : cannot modify because it's read-only
+}
+
+int a = 5;
+PrintSquare(in a);
+```
+4. `out` (passed by reference, must be assigned in the method)
+```C#
+void GetValues(out int x, out int y)
+{
+	x = 10;
+	y = 20;
+}
+
+int a, b; // don't need to initialise
+GetValues(out a, out b);
+Console.WriteLine($"{a}, {b}"); // 10, 20
+```
 #### Passing arguments by value
 
 #### The ref modifier
