@@ -294,7 +294,6 @@ int x = null; // Compile-time error
 struct Point {...}
 ```
 
-
 #### Storage overhead
 
 Value-type instances occupy precisely the memory required to store their fields.
@@ -734,8 +733,6 @@ If you need to use a colon for other purpose than formatting:
 bool b = true;
 Console.WriteLine($"The Answer in binary is {(b ? 1 : 0)}");
 ```
-
-
 #### String comparisons
 `==` operator is supported
 `>` and `<`  - are not supported for strings
@@ -847,19 +844,200 @@ char firstElement = vowels[first];  // 'a'
 char lastElement = vowels[last];    // 'u'
 ```
 #### Ranges
+Ranges let you slice an array by using the .. operator:
+```C#
+char[] firstTwo = vowels[..2]; // 'a', 'e'
+char[] lastThree = vowerls[2..]; // 'i', 'o', 'u'
+char[] middleOne = vowels[2..3]; // 'i'
+```
 
 ### Multidimensional Arrays
-
+Multidimensional arrays come in two varieties: rectangular and jagged.
+Rectangular arrays represent an n-dimensional block of memory, and jagged arrays are arrays of arrays.
 #### Rectangular arrays
+Rectangular arrays are declared using commas to separate each dimension.
+```C#
+int[,] matrix = new int[3, 3];
+```
+
+The `GetLength` method of an array returns the length for a given dimension
+```C#
+for (int i = 0; i < matrix.GetLength(0); i++)
+	for (int j = 0; j < matrix.GetLength(1); j++)
+		matrix[i, j] = i * 3 + j;
+
+/// Identical to
+
+int[,] matrix = new int[,]
+{
+	{0, 1, 2},
+	{3, 4, 5},
+	{6, 7, 8}
+};
+```
 
 #### Jagged arrays
+Jagged arrays are declared using successive square brackets to represent each dimension.
 
+Here is an example of declaring a jagged two-dimensional array for which the outermost dimension is 3:
+```C#
+int[][] matrix = new int[3][];
+```
+
+Inner dimensions are not in the declaration because they can be an arbitrary length.
+Each inner array is implicitly initialised to null rather than an empty array.
+You must manually create each inner array:
+```C#
+int[][] matrix new int[][]
+{
+	new int[] {0, 1, 2},
+	new int[] {3, 4, 5},
+	new int[] {6, 7, 8, 9}
+};
+```
 ### Simplified Array initialisation Expressions
+There are two ways to shorten array initialisation expressions.
+The first is to omit the `new` operator and type qualifications.
+```C#
+char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+
+int[,] rectangularMatrix = 
+{
+	{0, 1, 2},
+	{3, 4, 5},
+	{6, 7, 8}
+};
+
+int[][] jaggedMatrix =
+{
+	new int[] {0, 1, 2},
+	new int[] {3, 4, 5},
+	new int[] {6, 7, 8, 9}
+};
+```
+
+The second approach is to use the `var` keyword, which instructs the compiler to implicitly type a local variable.
+```C#
+var i = 3;         // i is implicitly of type int
+var s = "sausage"; // s is implicitly of type string
+```
+
+```C#
+var vowels = new[] {'a', 'e', 'i', 'o', 'u'}; // Compiler infers char[]
+```
+
+```C#
+var rectMatrix = new [,]     // rectMatrix is implicitly of type int[,]
+{
+	{0, 1, 2},
+	{3, 4, 5},
+	{6, 7, 8}
+};
+var jaggedMat = new int[][]  // jaggedMat is implicitly of type int[][]
+{
+	new[] {0, 1, 2},
+	new[] {3, 4, 5},
+	new[] {6, 7, 8, 9}
+};
+```
+
+For this to work, the elements must all be implicitly convertible to a single type:
+```C#
+var x = new[] {1, 1000000000}; // all convertible to long.
+```
 
 ### Bounds Checking
 
+All array indexing is bounds checked by the runtime. An `IndexOutOfRangeException` is thrown if you use an invalid index:
+```C#
+int[] arr = new int[3];
+arr[3] = 1;
+```
+
 ## Variables and Parameters
 
+### The Stack and the Heap
+The stack and heap are the places where variables reside. Each has very different lifetime semantics.
+#### Stack
+Stack - is a block of memory for storing local variables and parameters.
+	Logically grows and shrinks as a method or function is entered and exited.
+
+```C#
+static int Factorial (int x)
+{
+	if (x == 0) return 1;
+	return x * Factorial (x - 1);
+}
+```
+
+This method is recursive, meaning that it calls itself.
+Each time the method is entered, a new `int` is allocated on the stack, and each time the method exits, the `int` is deallocated.
+#### Heap
+Heap - is the memory in which `Objects` reside.
+Whenever a new object is created, it is allocated on the heap, and a reference to that object is returned.
+During program's execution the heap begins filling up as new objects are created. 
+The runtime has a garbage collector that periodically deallocates objects from the heap, so your program does not run out of memory.
+An object is eligible for deallocation as soon as it's not referenced by anything that's itself "alive"
+
+```C#
+using System;
+using System.Text;
+
+StringBuilder ref1 = new StringBuilder("object1");
+Console.WriteLine(ref1);
+// The StringBuilder referenced by ref1 is now eligible for GC.
+
+StringBuilder ref2 = new StringBuilder("object2");
+StringBuilder ref3 = ref2;
+// The StringBuilder referenced by ref2 is NOT yet eligible for GC.
+
+Console.WriteLine(ref3); // object2
+```
+
+Value-type instances (and object references) live wherever the variable was declared.
+If the instance was declared as a field within a class type, or as an array element, that instance lives on the heap.
+
+The heap also stores static fields.
+Unlike objects allocated on the heap, these live until the process ends.
+
+### Definite Assignment
+C# enforces a definite assignment policy.
+It means that outside of an `unsafe` or interop context, you can't accidentally access uninitialised memory.
+
+Definite assignment has three implications:
+- Local variables must be assigned a value before they can be read.
+- Function arguments must be supplied when a method is called. (Unless optional)
+- All other variables (such as fields and array elements) are automatically initialised by the runtime.
+
+### Default Values
+
+### Parameters
+
+#### Passing arguments by value
+
+#### The ref modifier
+
+#### The out modifier
+
+#### Out variables and discard
+
+#### Implications of passing by reference
+
+#### The in modifier
+
+#### The params modifier
+
+#### Optional parameters
+
+#### Named arguments
+
+### Ref Locals
+
+### Ref Returns
+
+### var--Implicitly Typed Local Variables
+
+### Target-Typed new Expressions
 ## Expressions and Operators
 
 ## Null Operators
