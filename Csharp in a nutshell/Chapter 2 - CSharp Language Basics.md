@@ -1167,6 +1167,10 @@ Parameter can be passed by reference or by value, regardless of whether the para
 #### The out modifier
 The out modifier is most commonly used to get multiple return values back from a method.
 
+An `out` modifier is like a `ref` argument except for the following:
+- It need not be assigned before going into the function.
+- It must be assigned before it comes `out` of the function.
+ 
 ```C#
 string a, b;
 Split("Stevie Ray Vaughn", out a, out b);
@@ -1183,8 +1187,46 @@ void Split(string name, out string firstNames, out string lastName)
 
 Like the `ref` parameter, an `out` parameter is passed by reference.
 #### Out variables and discard
+You can declare variables on the fly when calling methods with `out` parameters.
+```C#
+Split("Stevie Ray Vaughan", out string a, out string b);
+```
 
+Underscore `_` is a discard parameter.
+Allowing you to ignore an `out` in a method call.
+```C#
+Split("Stevie Ray Vaughan", out string a, out _); // Discard 2nd param
+Console.WriteLine(a);
+```
+
+You can include multiple discards in a single call.
+```C#
+SomeBigMethod(out _, out _, out int x, out _, out _, out _);
+```
+
+For backward compatibility, this language feature will not take effect if a real underscore variable is in scope.
+```C#
+string _;
+Split("Stevie Ray Vaughan", out string a, out _);
+Console.WriteLine(_); // Vaughan
+```
 #### Implications of passing by reference
+When you pass an argument by reference, you alias the storage location of an existing variable, rather than creating a new storage location.
+
+```C#
+class Test
+{
+	static int x;
+	static void Main(){ Foo (out x); }
+	
+	static void Foo (out int y)
+	{
+		Console.WriteLine(x); // x is 0
+		y = 1; // Mutate y
+		Console.WriteLine(x); // x is 1
+	}
+}
+```
 
 #### The in modifier
 
