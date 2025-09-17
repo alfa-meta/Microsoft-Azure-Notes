@@ -1229,25 +1229,287 @@ class Test
 ```
 
 #### The in modifier
+An `in` parameter is similar to a `ref` parameter except that the argument's value cannot be modified by the method (or it generates a compiler-time error).
+	This modifier is great at passing large value types to the method.
+	Allows the compiler to avoid the overhead of copying the argument prior to passing it.
+	Protects the original value from modification.
+	
+```C#
+void Foo (SomeBigStruct a) { ... }
+void Foo ( in SomeBigStruct a) { ... }
+```
 
+To call the second overload, the caller must use the `in` modifier.
+```C#
+SomeBigStruct x = ...;
+Foo(x);      // Calls the first overload
+Foo(in x);   // Calls the second overload
+```
+
+
+When there is no ambiguity for overloads, the use of the `in` modifier is optional for the caller.
+```C#
+void Bar(in SomeBigStruct a) { ... }
+```
+
+```C#
+Bar(x);      // OK (calls the `in` overload)
+Bar(in x);   // OK (calls the `in` overload)
+```
 #### The params modifier
+The `params` modifier, if applied to the last parameter of a method, allows the method to accept any number of arguments of a particular type.
+The parameter type must be declared as a single-dimensional array.
+
+```C#
+int total = Sum(1, 2, 3, 4);
+Console.WriteLine(total);   // 10
+
+// The call to Sum above is equivalent to:
+int total2 = Sum(new int[] {1, 2, 3, 4});
+
+int Sum(params int[] int)
+{
+	int sum = 0;
+	for (int i = 0; i < ints.length; i++)
+		sum += ints[i];    // Increase sum by ints[i]
+	return sum;
+}
+```
 
 #### Optional parameters
+Methods, constructors, and indexers can declare optional parameters.
+A parameter is optional if it specifies a default value in its declaration.
+You can omit optional parameters when calling the method.
+```C#
+void Foo(int x = 23) { Console.WriteLine(x); }
+
+Foo(); // 23
+
+// The compiler bakes the value 23 into the compiler code at the calling side.
+// Making Foo semantically identical to
+
+Foo(23);
+```
+
+Adding an optional parameter to a public method that's called from another assembly requires recompilation of both assemblies--just as though the parameter were mandatory.
+
+Default value of an optional parameter must be specified by:
+- Constant expression
+- Parameterless constructor of a value type
+- `default` expression
+
+Optional parameters cannot be marked with `ref` or `out`.
+Mandatory parameters must occur before optional parameters.
 
 #### Named arguments
+Rather than identifying an argument by position, you can identify an argument by name.
+```C#
+Foo(x:1, y:2); // 1, 2
 
+void Foo(int x, int y) { Console.WriteLine(x + ", " + y); }
+```
+
+Named arguments can occur in any order.
+The following calls to Foo are semantically identical:
+```C#
+Foo(x:1, y:2);
+Foo(y:2, x:1);
+```
+
+Positional arguments must come before named arguments unless they are used in the correct position.
+```C#
+Foo(x:1, 2); // OK. Arguments in the declared positions
+```
+
+But not like this:
+```C#
+Foo(y:2, 1); // Compile-time error. y isn't in the first position.
+```
 ### Ref Locals
+Ref locals allows you to define a local variable that references an element in an array or field in an object:
+```C#
+int[] numbers = { 0, 1, 2, 3, 4 };
+ref int numRef = ref numbers[2];
 
+numRef *= 10;
+Console.WriteLine(numRef);     // 20
+Console.WriteLine(numbers[2]); // 20
+```
+
+The target for a ref local must be an array element, field, or local variable;
+it cannot be a property.
+
+Ref locals are intended for specialised micro-optimisation scenarios and are typically used in conjunction with ref returns.
 ### Ref Returns
+Common used for `Span<T>` and `ReadOnlySpan<T>` otherwise only in micro-optimisation scenarios.
 
+You can return a `ref` local from a method. This is called `ref` return
+```C#
+class Program
+{
+	static string x = "Old Value";
+	static ref string GetX() => ref x;     // This method returns a ref
+	
+	static void Main()
+	{
+		ref string xRef = ref GetX();     // Assign result to a ref local
+		xRef = "New Value";
+		Console.WriteLine(x);             // New Value
+	}
+}
+```
+
+If you omit the `ref` modifier on the calling side, it reverts to returning an ordinary value:
+```C#
+string localX = GetX(); // Legal: localX is an ordinary non-ref variable
+```
+
+```C#
+static ref string Prop => ref x; // can be used when defining a variable
+Prop = "New Value";
+
+static ref readonly string Prop => ref x; // readonly prevents modification
+```
+
+The `ref` `readonly` modifier prevents modification while still enabling the performance gain of returning by reference.
 ### var--Implicitly Typed Local Variables
 
+If the compiler is able to infer the type from the initialisation expression, you can use the keyword `var` in place of the type declaration
+```C#
+var x = "hello";
+var y = new System.Text.StringBuilder();
+var z = (float)Math.PI;
+
+// This is precisely equivalent to the following
+string x = "hello";
+System.Text.StringBuilder y = new System.Text.StringBuilder();
+float z = (float)Math.PI;
+```
+
 ### Target-Typed new Expressions
+Target-Typed new Expressions allows a C# program to not have the full Class name during initialisation if the type is unambiguous at compile time.
+
+```C#
+System.Text.StringBuilder sb1 = new();
+System.Text.StringBuilder sb2 = new("Test");
+// This is precisely equivalent to:
+System.Text.StringBuilder sb1 = new System.Text.StringBuilder();
+System.Text.StringBuilder sb2 = new System.Text.StringBuilder("Test");
+```
 ## Expressions and Operators
+Expression - denotes a value.
+Constants and variables are the simplest kinds of expressions.
+Expressions can be transformed and combined using operators.
+
+Operator - takes on or more input operands to output a new expression.
+
+```C#
+// Example of an expression
+12 
+// Example of two operands being combined with an operator
+12 * 30
+```
+
+Operators in C# can be classed as:
+	Unary - one
+	Binary - two
+	Ternary - three
+
+Binary operators always use `infix` notation in which the operator is placed between the two operands.
+
+### Primary Expressions
+
+### Void Expressions
+
+### Assignment Expressions
+
+### Operator Precedence and Associativity
+
+#### Precedence
+
+#### Left-associative operators
+
+#### Right-associative operators
+
+### Operator Table
 
 ## Null Operators
 
+### Null-Coalescing Operator
+
+### Null-Coalescing Assignment Operator
+
+### Null-Conditional Operator
+
 ## Statements
 
+### Declaration Statements
+
+### Local variables
+
+### Expression Statements
+
+### Selection Statements
+
+#### The if statement
+
+#### The else clause
+
+#### Changing the flow of execution with braces
+
+#### The switch statement
+
+#### Switching on types
+
+#### Switch expressions
+
+### Iteration Statements
+
+#### for loops
+
+#### foreach loops
+
+### Jump Statements
+
+#### The break statement
+
+#### The continue statement
+
+#### The `goto` statement
+
+#### The return statement
+
+#### The throw statement
+
+#### Miscellaneous Statements
 ## Namespaces
 
+### File-Scoped Namespaces
+
+### The using Directive
+
+### The global using Directive
+
+#### Implicit global usings
+
+#### using static
+
+### Rules Within a Namespace
+
+#### Name scoping
+
+#### Name hiding
+
+#### Repeated namespaces
+
+#### Nested using directives
+
+### Aliasing Types and Namespaces
+
+#### Alias any type (C# 12)
+
+### Advanced Namespace Features
+
+#### Extern
+
+#### Namespace alias qualifiers
