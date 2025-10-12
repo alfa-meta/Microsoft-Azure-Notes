@@ -47,3 +47,84 @@ Flowchart - a diagram that represents a process that uses various shapes to show
 
 Pseudocode - a detailed and readable description of what a computer program or algorithm must do, expressed in a natural language rather than in a programming language.
 
+
+## Deductive Reasoning in Programming
+
+Deductive Reasoning - a logical process by which conclusions are drawn from given premises.
+
+Process of Deductive Reasoning:
+- Start with the observed issue
+- Develop premises
+- Draw conclusions
+- Pinpoint the problem
+
+
+Arguments in Logic:
+1. Premises
+2. Conclusion
+3. Supporting relation
+
+Crafting Good Premises:
+1. Premises should be clear
+2. Premises should be factual
+3. Premises should be directly related to the issue
+
+Find direct cause and effect relations.
+
+### Steps for Applying Deductive Reasoning
+
+1. Identify the premises - gather all known facts or assumptions that provide the foundation for reasoning.
+2. Analyse the premises - examine how these premises relate to each other and what logical conclusions can be drawn.
+3. Draw a conclusion - based on analysis, derive a logical conclusion.
+4. Test the conclusion - verify the conclusion by reviewing the code, checking logs, or conducting further tests.
+
+
+## Problem Decomposition
+
+Problem Decomposition - the process of breaking down a problem into a small manageable parts.
+
+Steps to Decompose Software:
+1. Identify the problem goal
+2. Break it down into parts
+3. Analyse and address
+4. Integrate the solution
+
+Top-Down Approach - a method of problem-solving that begins with a broad overview of a problem and breaks it down into a smaller, more manageable parts.
+
+Modularisation - a decomposition approach where you fragment a complex issue into smaller, independent parts that each carry out a specific role.
+	Break the problem into units or modules
+	Modules perform a specific function
+	Simplifies management and understanding
+
+Create a broad design goal or problem statement
+State goals and problems that are out of scope
+
+Implementing the Top-Down Approach for Debugging:
+- Identify the broad issue
+- Create specific tasks that might lead to the cause
+- Isolate the issue
+- Fix the issue
+
+
+Bottom-Up Approach - a method of problem-solving that begins with small, manageable parts and combines them to create a broad composite.
+
+Integration - the process of combining parts of a problem or design into a complete, composite, and unified whole.
+
+
+## Introduction to Pseudocode
+
+Pseudocode - a detailed and readable description of what a computer program or algorithm must do, expressed in a natural language rather than in a programming language.
+
+
+### How is Pseudocode used
+- Bridge between natural language and programming code
+- Outline the program's logic
+- Verify the logic is correct.
+
+
+### Writing Pseudocode
+- Use plain language
+- Being Concise
+- Structure like code
+- Focus on logic
+

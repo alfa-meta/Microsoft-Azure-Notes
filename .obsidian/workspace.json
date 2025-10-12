@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Microsoft Back End Engineering Certification/Introduction to Logical Thinking and Problem-Solving/Introduction to Logical Thinking and Problem-Solving.md",
+                "file": "Microsoft Back End Engineering Certification/Algorithms, Flowcharts, and Datatypes/Programming.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Introduction to Logical Thinking and Problem-Solving"
+              "title": "Programming"
             }
           }
         ],
@@ -186,9 +186,17 @@
   },
   "active": "d43c14c488bf6d65",
   "lastOpenFiles": [
-    "Microsoft Back End Engineering Certification/Introduction to Logical Thinking and Problem-Solving",
-    "Microsoft Back End Engineering Certification/Introduction to Back End Engineering/Foundations of Back End Code.md",
+    "Microsoft Back End Engineering Certification/Algorithms, Flowcharts, and Datatypes/Algorithms, Flowcharts, and Data Types.md",
+    "Microsoft Back End Engineering Certification/Algorithms, Flowcharts, and Datatypes/Programming.md",
+    "Microsoft Back End Engineering Certification/Algorithms, Flowcharts, and Datatypes/Activity.md",
     "Microsoft Back End Engineering Certification/Introduction to Logical Thinking and Problem-Solving/Introduction to Logical Thinking and Problem-Solving.md",
+    "Microsoft Back End Engineering Certification/Algorithms, Flowcharts, and Datatypes",
+    "Microsoft Back End Engineering Certification/Introduction to Logical Thinking and Problem-Solving/Activities.md",
+    "Microsoft Back End Engineering Certification/Introduction to Back End Engineering/Foundations of Back End Code.md",
+    "Microsoft Back End Engineering Certification/Introduction to Back End Engineering/Does Free Will Exist.md",
+    "Csharp in a nutshell/Chapter 2 - CSharp Language Basics.md",
+    "Csharp in a nutshell/Chapter 1 - Introduction.md",
+    "Microsoft Back End Engineering Certification/Introduction to Logical Thinking and Problem-Solving",
     "Csharp/Interview Questions/Hard/Hard 50.md",
     "Csharp/Interview Questions/Intermediate/Intermediate 50.md",
     "Csharp/Interview Questions/Easy/Easy Questions 50.md",
@@ -196,7 +204,6 @@
     "Csharp/Interview Questions/Hard",
     "Csharp/Interview Questions/Easy",
     "Csharp/Interview Questions",
-    "Csharp in a nutshell/Chapter 2 - CSharp Language Basics.md",
     "README.md",
     "Microsoft Back End Engineering Certification/Introduction to Back End Engineering",
     "Microsoft Back End Engineering Certification",
@@ -212,11 +219,8 @@
     "Pasted image 20250517123201.png",
     "Untitled.base",
     "Untitled 4.base",
-    "Untitled 3.base",
-    "Untitled 2.base",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 2 - Compiler rewrites your code.md",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 1 - Asynchronous programming and multithreading.md",
-    "Csharp in a nutshell/Chapter 1 - Introduction.md",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 0 - Introduction.md",
@@ -229,10 +233,6 @@
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 7 - Creating and Managing Azure Resources.md",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 5 - Async, await and multithreading.md",
     "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 4 - Multithreading Basics.md",
-    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 3 - The async and await keywords.md",
-    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 1 - Cloud Concepts.md",
-    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 4 - Assessment.md",
-    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 3 - Azure Core Networking Services.md",
-    "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Chapter 3 - Assessment.md"
+    "Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 3 - The async and await keywords.md"
   ]
 }
