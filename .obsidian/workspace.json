@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Microsoft Azure/Azure Devops/Chapter 1.md",
+                "file": "Microsoft Azure/Azure Devops/Chapter 3 - Setting Up Pools, Deployment Groups, and Agents.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 1"
+              "title": "Chapter 3 - Setting Up Pools, Deployment Groups, and Agents"
             }
           }
         ],
@@ -185,8 +185,12 @@
   },
   "active": "d43c14c488bf6d65",
   "lastOpenFiles": [
+    "Microsoft Azure/Azure Devops/Chapter 2 - Overview of Azure Pipelines.md",
+    "Microsoft Azure/Azure Devops/Chapter 3 - Setting Up Pools, Deployment Groups, and Agents.md",
+    "Pasted image 20251020133902.png",
+    "Microsoft Azure/Azure Devops/Chapter 1 - Understanding the Important of Software Delivery.md",
+    "Pasted image 20250902074421.png",
     "Csharp/Csharp Books/Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 1 - Asynchronous programming and multithreading.md",
-    "Microsoft Azure/Azure Devops/Chapter 1.md",
     "Csharp/Csharp Books/Csharp Concurrency - Asynchronous and multithreaded programming/Chapter 0 - Introduction.md",
     "Microsoft Azure/Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Microsoft Book 2/Chapter 2.md",
     "Csharp/Csharp Books",
@@ -215,12 +219,10 @@
     "Microsoft Azure/Microsoft Back End Engineering Certification/Introduction to Logical Thinking and Problem-Solving",
     "Csharp/Interview Questions/Hard/Hard 50.md",
     "Csharp/Interview Questions/Intermediate/Intermediate 50.md",
-    "Csharp/Interview Questions/Easy/Easy Questions 50.md",
     "Csharp/Interview Questions/Intermediate",
     "Csharp/Interview Questions/Hard",
     "Csharp/Interview Questions/Easy",
     "Csharp/Interview Questions",
-    "README.md",
     "Pasted image 20250907134348.png",
     "Pasted image 20250914131213.png",
     "Pasted image 20250914132514.png",
@@ -229,8 +231,6 @@
     "Pasted image 20250831034822.png",
     "Pasted image 20250831035639.png",
     "Pasted image 20250827215041.png",
-    "Pasted image 20250612151739.png",
-    "Pasted image 20250517123201.png",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
