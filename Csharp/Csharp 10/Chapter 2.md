@@ -62,3 +62,156 @@ Reflective Programming - is a technique that allows a program to examine, intros
 `System.Runtime` assembly contains 0 types and only has type-forwarders.
 Type-forwarders - represent a type that has been implemented outside of .NET.
 
+## Variables
+
+```C#
+double heightInMetres = 1.88;
+Console.WriteLine($"The variable {nameof(heightInMetres)} has the value {heightInMetres}.");
+```
+
+`nameof` - returns the name of the variable.
+
+`nameof` also unwraps generic types
+```C#
+List<String> listOfStrings = ["a", "b"];
+WriteLine(listOfStrings);
+WriteLine(nameof(listOfStrings)); // Prints System.Collections.Generic.List`1[System.String]
+```
+
+## Strings
+### Escape characters
+
+```C#
+// C# 13 or later.
+char esc = '\e';
+
+// C# 12 or earlier.
+char esc = '\u001b';
+```
+
+Verbatim Literal strings:
+```C#
+string filePath = @"C:\televisions\sony\bravia.txt";
+```
+
+### Raw interpolated string literals
+
+The number of `$` defines the number of braces needed to escape strings.
+```C#
+var person = new { FirstName = "Alice", Age = 56 };
+
+string json = $$"""
+{
+	"first_name": "{{person.FirstName}}",
+	"age": {{person.Age}},
+	"calculation": "{{{1 + 2}}}"
+}
+""";
+```
+
+## Numbers
+
+
+```C#
+// An unsigned integer is a positive whole number or 0
+uint naturalNumber = 23;
+
+// An integer is a negative or positive whole number or 0
+int integerNumber = -23;
+
+// A float is a single-precision floating-point number.
+// The F or f suffix makes the value, a float literal.
+// The suffix is required to compile.
+float realNumber = 2.3f;
+
+// A double is a double-precision floating-point number.
+// double is the default for a number value with a decimal point.
+double anotherRealNumber = 2.3;
+```
+
+### Number Notations
+
+Base of 2 (Binary) - only two digits.
+	0 or 1.
+	To use binary notation start the number with `0b`
+
+Base of 10 (Decimal) - only ten digits.
+	0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+Base of 16 (Hexadecimal) - only sixteen digits
+	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+	To use binary notation start the number with `0x`
+
+
+Binary representation of the number 12.75
+
+| 128 | 64  | 32  | 16  | 8   | 4   | 2   | 1   | .   | 1/2 | 1/4 | 1/8 | 1/16 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---- |
+| 0   | 0   | 0   | 0   | 1   | 1   | 0   | 0   |     | 1   | 1   | 0   | 0    |
+
+
+`int` - 4 bytes between: -2,147,483,648 to 2,147,483,647
+`double` is 8 bytes between:  -179,769,313,486,231,570,814,527,423,731,704,356,798,070,567,525,844,996,598,917,476,803,157,260,780,028,538,760,589,558,632,766,878,171,540,458,953,514,382,464,234,321,326,889,464,182,768,467,546,703,537,516,986,049,910,576,551,282,076,245,490,090,389,328,944,075,868,508,455,133,942,304,583,236,903,222,948,165,808,559,332,123,348,274,797,826,204,144,723,168,738,177,180,919,299,881,250,404,026,184,124,858,368
+to
+179,769,313,486,231,570,814,527,423,731,704,356,798,070,567,525,844,996,598,917,476,803,157,260,780,028,538,760,589,558,632,766,878,171,540,458,953,514,382,464,234,321,326,889,464,182,768,467,546,703,537,516,986,049,910,576,551,282,076,245,490,090,389,328,944,075,868,508,455,133,942,304,583,236,903,222,948,165,808,559,332,123,348,274,797,826,204,144,723,168,738,177,180,919,299,881,250,404,026,184,124,858,368
+
+`decimal` is 16 bytes between: -79,228,162,514,264,337,593,543,950,335 to 79,228,162,514,264,337,593,543,950,335
+
+Never compare doubles.
+
+
+Doubles are hardware accelerated where decimals are not.
+
+`NaN` - is not a Number
+`Epsilon` - smallest positive number that can be  stored in a float or double.
+`PositiveInfinity`  and `NegativeInfinity` - represent the biggest and smallest numbers possible
+
+
+Any positive number divided by zero will give you a `PositiveInfinity` value which is 8
+Any negative number divided by zero will give you a `NegativeInfinity` value which is -8
+
+Zero divided by any positive real number is zero
+Zero divided by any negative real number is negative zero
+
+
+## New number types and unsafe code
+
+`System.Half` type - 
+	Introduced in .NET 5.
+	Uses two bytes of memory.
+
+`System.Int128` type -
+	Introduced in .NET 7
+	Can store signed and unsigned integers
+	Usually store 16 bytes of memory
+
+
+To enable `unsafe` code you need to add the following to `.csproj` file:
+	`<AllowUnsafeBlocks>True</AllowUnsafeBlocks>`
+
+Common built-in types use a constant to denote their size, as shown below:
+![[Pasted image 20251218024925.png]]
+
+`sizeof()` function requires unsafe code for unmanaged types.
+	Such as `Int128` or a custom type
+
+
+`object` - is a generic type that allows you to declare any variable type.
+
+`dynamic` - similar to object type it allows for any variable to be declared.
+	It also allows for changing the variable time during runtime.
+	Compiler cannot know the type at compile time.
+
+Dynamic binding - method invocation determined at runtime rather than compile time.
+
+`ExpandoObject` - is a dynamic object that lets you add and remove properties at runtime, and internally uses a dictionary to store the keys and values of these properties.
+	Lives in the `System.Dynamic` namespace
+	Uses Dynamic Binding
+
+
+```C#
+ExpandoObject object = new ExpandoObject();
+object.NewName = "String Name";
+```
+
+
