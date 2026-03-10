@@ -139,3 +139,281 @@ Set-AzWebAppServicePlan
 	-WorkerSize Large
 ```
 
+
+### Creating Autoscaling  settings
+
+Horizontal Scaling - adds more instances of your app to distribute the load.
+
+```Azure CLI
+az monitor autoscale create ## 1
+	--resource-group {resource-group-new} ## 2
+	--resource {resource-id} ## 3
+	--min-count 2 ## 4
+	--max-count 9 ## 5
+	--count 4 ## 6
+```
+
+1. This command is used to establish autoscale settings for an Azure resource
+2. This parameter denotes the resource group where these settings will be applied, which you replace with your actual resource group name.
+3. Identifies the specific resource, such as an App Service, that the autoscale setting will govern, using its unique resource ID.
+4. Ensures there will always be a minimum of two instances running, providing a baseline capacity to handle basic traffic.
+5. Sets an upper limit of nine instances, preventing excessive scaling that could lead to high operational costs.
+6. This parameter sets the default number of instances to start with, meaning that under typical conditions, the application will operate with four instances.
+
+
+
+### Creating Scaling out rule
+
+```Azure CLI
+az monitor autoscale rule create
+	--resource-group {resource-group-new}
+	--autoscale-name {resource-name} ## 1
+	--scale out 1 ## 2
+	--condition "Percentage CPU > 75 avg 5m" ## 3
+```
+
+1. This parameter indicates the name of the autoscale setting that will use this rule.
+2. This parameter defines the action to be taken when the condition is met, which in this case is to add one instance.
+3. This parameter specifies the condition that triggers this scaling action. This rule states that if the average CPU usage exceeds 75% over a five-minute period, an additional instance will be added to handle the increased load.
+
+
+Metric-based rules - these trigger scaling actions based on performance metrics.
+	For instance if a certain resource, like CPU or memory, exceed a set threshold, the system can automatically scale out to handle increased demand.
+
+Time-based rules - these allow you to scale your resources based on a predefined schedule.
+	You could set up scale out during peak hours.
+
+### Creating the scale-in rule
+
+```Azure CLI
+az monitor autoscale rule create
+	--resource-group {resource-group-name}
+	--autoscale-name {resource-name}
+	--scale in 1
+	--condition "Percentage CPU < 25 avg 5m"
+```
+
+
+This removes one instance of a resource if CPU percentage falls below 25% over a 5 minute period.
+
+
+### Autoscaling in the Azure portal
+
+Maximum burst - number of instances your App Service plan can scale out under load.
+	Its value should be greater than or equal to current instances for the plan.
+
+Always ready instances - number of instances that are always ready for the web app to use by default.
+
+Note that if automatic scaling is enabled, rules-based scaling will be ignored.
+
+
+## Blue-Green Deployment with Slots
+
+Blue-Green deployment - is a technique that reduces downtime and risk by running two identical production environments, known as blue and green.
+
+In Azure blue-green deployments can be implemented using deployment slots.
+
+### Creating a deployment slot
+
+```Azure CLI
+az webapp deployment slot create
+	--name sampleApp
+	--resource-group SampleRg
+	--slot staging
+	
+```
+
+```Azure PowerShell
+New-AzWebAppSlot
+	-ResourceGroupName "SampleRg"
+	-Name "sampleApp"
+	-Slot "staging"
+```
+
+
+### Deploying your new application
+
+```Azure CLI
+az webapp deploy
+	--resource-grouip SampleRg
+	--name sampleApp
+	--src-path "./path/to/file.zip"
+	--slot "staging"
+	--type zip
+	--async true
+```
+
+
+```PowerShell
+Publish-AzWebApp
+	-ResourceGroupName SampleRg
+	-Name sampleApp
+	-Slot staging
+	-ArchivePath "./path/to/file.zip"
+```
+
+
+### Swapping staging slot with the production slot
+
+```AzureCLI
+az webapp deployment slow swap
+	--resource-group SampleRg
+	--slot staging
+```
+
+
+```PowerShell
+Swap-AzWebAppSlot
+	-ResourceGroupName "SampleRg"
+	-Name "sampleApp"
+	-SourceSlotName "staging"
+	-DestinationSlotName "production"
+```
+
+
+## Automating App Service Deployments
+
+Azure Service Connection - allows you to securely connect and authenticate with Azure resources from external tools or services, such as Azure DevOps, GitHub Actions, or other CI/CD pipelines.
+
+### Using Azure DevOps
+
+```YAML
+trigger:
+	branches:
+		include:
+			- main
+			  
+pool:
+	vmImage: 'ubuntu-latest'
+
+steps:
+	- task: UseDotNet@2
+	  inputs:
+		  packageType: 'sdk'
+		  version: '5.x'
+		  installationPath: $(Agent.ToolsDirectory)/dotnet
+	
+	- script: dotnet build --configuration Release
+	  displayName: 'Build Project'
+	  
+	- task: ArchiveFiles@2
+	  inputs:
+		  rootFolderOrFile: $(System.DefaultWorkingDirectory)
+		  includeRootFolder: false
+		  archiveType: 'zip'
+		  archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+		  replaceExistingArchive: true
+	
+	- task: PublishBuildArtifacts@1 
+	  inputs:
+		  pathToPublsih: $(PublishBuildArtifactStagingDirectiry)
+		  artifactName: drop
+		  publishLocation: 'Container'
+	
+	- task: AzureWebApp@1
+	  inputs:
+		  azureSubscription: 'your-service-connection'
+		  appName: 'MyAppService'
+		  package: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+```
+
+
+Setting up a Service Connection using the Azure CLI:
+
+```Azure CLI
+# Create a service principal
+az ad sp create-for-rbac
+	--name http://my-service-connection
+	--role contributor
+	--scopes /subscriptions/{subscription-id}/resourceGroups/{rg-name}
+```
+
+### Using GitHub Actions
+
+```GitHub Actions
+name: Build and Deploy to Azure Web App
+
+on:
+	push:
+		branches:
+			- main
+			  
+jobs:
+	build-and-deploy:
+		runs-on: ubuntu-latest
+		
+		steps:
+			- name: Checkout code
+			  uses: actions/checkout@v2
+			
+			- name: Set up .NET
+			  uses: actions/setup-dotnet@v2
+			  with:
+				  dotnet-version: '5.x'
+			
+			- name: Build project
+			  run: dotnet build --configuration Release
+			
+			- name: Publish artifact
+			  run: dotnet publish -C Release -o ./publish
+			  
+			- name: Deploy to Azure Web App
+			  uses: azure/webapp-deploy@v2
+			  with:
+				  app-name: 'MyAppService'
+				  slot-name: 'production'
+				  publish-profile: $({ secrets.AZURE_WEBAPP_PUBLISH_PROFILE })
+				  package: './publish'
+```
+
+1. The workflow triggers pushes to the main branch.
+2. Checks out the code.
+3. Sets up the .NET environment
+4. Builds and publishes the project
+5. Deploys the application to an Azure Web App using `azure/webapps-deploy` action
+
+
+### Cleaning Up: Deleting App Service Resources and resource Groups
+
+```Azure PowerShell
+az webapp delete
+	--name <app-name>
+	--resource-group <resource-group-name>
+```
+
+This will delete the Web App from the resource group.
+However, if you've created other resources like databases or storage accounts, you'll need to delete them individually or delete the entire resource group.
+
+```Azure CLI
+az group delete
+	--name <resource-group-name>
+	--yes
+	--no-wait
+```
+
+--yes - flag skips confirmation prompt
+--no-wait - allows the deletion to proceed asyncrhonously.
+
+### Deleting an individual App Service
+
+```Azure PowerShell
+Remove-AzWebApp
+	-Nmae <app-name>
+	-ResourceGroupName <resource-group-name>
+```
+
+
+### Deleting the entire Resource Group, including its Resources
+
+```Azure PowerShell
+Remove-AzResourceGroup
+	-Name <resource-group-name>
+	-Force
+```
+
+
+
+
+
+
+
