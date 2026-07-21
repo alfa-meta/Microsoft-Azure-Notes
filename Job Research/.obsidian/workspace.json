@@ -1,0 +1,195 @@
+{
+  "main": {
+    "id": "fc6451949a9e15ff",
+    "type": "split",
+    "children": [
+      {
+        "id": "535d7732a4647618",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "380f078a604df489",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "22-06-25/Nottingham.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Nottingham"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7c9f0bcd6576ae54",
+    "type": "split",
+    "children": [
+      {
+        "id": "b78322e239db7103",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bd899d3cbfd50800",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c108b3ae1979e9b4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "eda0e23784373875",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "571b35c5d56274ba",
+    "type": "split",
+    "children": [
+      {
+        "id": "efc03f0a27d856cb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "92143c7b11ed8905",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "22-06-25/Nottingham.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Nottingham"
+            }
+          },
+          {
+            "id": "dfcbe6bf0f96c048",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "22-06-25/Nottingham.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Nottingham"
+            }
+          },
+          {
+            "id": "337e1f3bd8ec8b3e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f61258aea6c4d9ea",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "2415626aea7fd6e8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "22-06-25/Nottingham.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Nottingham"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "380f078a604df489",
+  "lastOpenFiles": [
+    "22-06-25/Stoke-on-trent.md",
+    "22-06-25/Leeds.md",
+    "22-06-25/Manchester.md",
+    "22-06-25/Nottingham.md",
+    "Welcome.md",
+    "22-06-25"
+  ]
+}

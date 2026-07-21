@@ -69,7 +69,7 @@ And Just In Time (JIT) Compiled to native CPU instructions.
 
 C# compiler is called Roslyn.
 
-Dotnet CLI converts C# source code into IL.
+Dotnet CLI converts C# source code into IL, it stores the IL in an assembly (a DLL or EXE file)
 IL is used by .NET's Virtual Machine called CoreCLR.
 CoreCLR loads the IL code from the assembly.
 JIT compiler compiles it into native CPU instructions.
@@ -103,7 +103,7 @@ dotnet new console --user-program-main
 - Only one file for top-level program
 - Any `using` statements must be at the top of the file
 - Classes and other type declaration must be at the bottom of the file.
-- If Main method is explicitly defined then the entry point will become `<main>$`
+- If Main method is explicitly defined then the entry point will become `<Main>$`
 
 
 ### Implicitly imported namespaces
@@ -111,6 +111,14 @@ dotnet new console --user-program-main
 Global namespace imports:
 - A feature that imports some commonly used namespaces like System for use in all code files.
 - Introduced in C# 10 and .NET 6
+
+```C#
+string name = typeof(Program).Namespace ?? "<null>";
+Console.WriteLine($"Namespace: {name}");
+```
+
+`??` - is the null-coalescing operator.
+	First statement means "if the namespace of Program is `null`, then return `<null>`; otherwise, return the actual name"
 
 
 If you write `throw new Exception();` in `Program.cs`, you will be able to see `<main>$` method.
