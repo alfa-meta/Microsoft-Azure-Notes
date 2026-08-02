@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Microsoft Azure/Microsoft Azure AI Associate Developer beta/1.2 Deploy containers to Azure App Service.md",
+                "file": "Microsoft Azure/Microsoft Azure AI Associate Developer beta/2.3 Scale containers in Azure Container Apps.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1.2 Deploy containers to Azure App Service"
+              "title": "2.3 Scale containers in Azure Container Apps"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -174,11 +176,22 @@
   "lastOpenFiles": [
     "Microsoft Azure/Microsoft Azure AI Associate Developer beta/1.1 Implement Container Application Hosting on Azure.md",
     "Microsoft Azure/Microsoft Azure AI Associate Developer beta/1.2 Deploy containers to Azure App Service.md",
+    "Microsoft Azure/Microsoft Azure AI Associate Developer beta/2.1 Deploy Containers to Azure Container Apps.md",
+    "Microsoft Azure/Microsoft Azure AI Associate Developer beta/2.2 Manage Containers in Azure Container Apps.md",
+    "Microsoft Azure/Microsoft Azure AI Associate Developer beta/2.3 Scale containers in Azure Container Apps.md",
+    "Microsoft Azure/Microsoft Azure AI Associate Developer beta/0.1 Terminology.md",
+    "Microsoft Azure/Microsoft Azure AI Associate Developer beta/3.1.md",
+    "Pasted image 20250517123201.png",
+    "Pasted image 20250827231707.png",
+    "Pasted image 20250827215041.png",
+    "Pasted image 20250703063729.png",
+    "Pasted image 20250703063714.png",
+    "Pasted image 20250618060804.png",
+    "Pasted image 20250612151739.png",
+    "Pasted image 20250610180155.png",
+    "Pasted image 20250517123300.png",
     "Pasted image 20260714170746.png",
     "Microsoft Azure/Microsoft Azure Associate Developer 204/Microsoft Learn/Explore Azure App Service.md",
-    "Pasted image 20260604102723.png",
-    "Pasted image 20251218024925.png",
-    "Pasted image 20260713120355.png",
     "Microsoft Azure/Microsoft Azure Associate Developer 204/Book/Chapter 2 - Azure App Service.md",
     "Microsoft Azure/Microsoft Book 2/Chapter 2.md",
     "Microsoft Azure/Microsoft Azure Associate Developer 204/Microsoft Learn",
@@ -200,23 +213,12 @@
     "Microsoft Azure/Azure Devops/Chapter 3 - Setting Up Pools, Deployment Groups, and Agents.md",
     "Microsoft Azure/Azure Devops/Chapter 2 - Overview of Azure Pipelines.md",
     "Microsoft Azure/Microsoft Azure Associate Developer 204/Book",
-    "Microsoft Azure/Microsoft Azure Associate Developer 204.md",
     "Microsoft Azure/Microsoft Azure Associate Developer 204",
-    "Microsoft Azure/Microsoft Azure Associate Developer 204/Azure CLI/Azure API Management.md",
-    "Microsoft Azure/Microsoft Azure Associate Developer 204/Azure CLI/Azure Cosmos DB.md",
-    "Microsoft Azure/Microsoft Azure Associate Developer 204/Azure CLI/Azure Containers ACR.md",
-    "Microsoft Azure/Microsoft Azure Associate Developer 204/Azure CLI/Azure Function Apps.md",
     "Microsoft Azure/Microsoft Azure Associate Developer 204/Azure CLI",
     "Microsoft Azure/Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/System Design/Not to use",
     "Microsoft Azure/Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/System Design/Versus",
     "Microsoft Azure/Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/System Design",
     "Microsoft Certified Azure Fundamentals Study Guide Exam AZ-900/Practise Questions",
-    "Pasted image 20251020133902.png",
-    "Pasted image 20251126033626.png",
-    "Pasted image 20251126033547.png",
-    "Pasted image 20251123030454.png",
-    "Pasted image 20250907134348.png",
-    "Pasted image 20250914131213.png",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
